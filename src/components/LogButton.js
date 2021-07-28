@@ -12,20 +12,19 @@ export default function LogButton(props) {
     const user = {
         name: props.name,
         task: props.task
-    };
+      } 
 
     const handleLogProgress = () => {
         setUpdated(true);
-        // axios.push(updateTask, {user})
-        //     .then(res => {
-        //         // do something
-        //     })
-        console.log("hit")
+        axios.post('https://qline-api21.herokuapp.com/update_task', user)
+            // .then(res => {
+            //     // do something
+            // })
     };
 
     return (
-        <div class="LogButton">
-            <Button class="ButtonStyle" variant="primary" size="lg" onClick={handleLogProgress} disabled={updated}>
+        <div className="LogButton">
+            <Button className="ButtonStyle" variant="primary" size="lg" onClick={handleLogProgress} disabled={updated}>
                 Today.LogProgress()
             </Button>{' '}
         </div>
